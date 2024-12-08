@@ -11,7 +11,6 @@ let h2 = document.querySelector("h2");
 document.addEventListener("keypress", function(e){
     // console.dir(e.key);
     if(started == false){
-        console.log("game is started");
         started = true;
         levelUp();
     }
@@ -36,11 +35,11 @@ function levelUp(){
     level++;
     h2.innerText = `Level ${level}`;
     let randIdx = Math.floor(Math.random() * 4); //Math.floor(Math.random() * 3); -> written by shradha, but it will generate only 0,1,2 and 3 will never come
-    console.log({randIdx})
+    // console.log({randIdx})
     let randColor = btns[randIdx];
     let randBtn = document.querySelector(`.${randColor}`);
     gameSeq.push(randColor);
-    console.log(gameSeq);
+    // console.log(gameSeq);
     gameflash(randBtn);
 }
 
