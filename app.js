@@ -9,7 +9,7 @@ let level = 0;
 let h2 = document.querySelector("h2");
 
 document.addEventListener("keypress", function(e){
-    console.dir(e.key);
+    // console.dir(e.key);
     if(started == false){
         console.log("game is started");
         started = true;
@@ -35,7 +35,8 @@ function levelUp(){
     userSeq = [];
     level++;
     h2.innerText = `Level ${level}`;
-    let randIdx = Math.floor(Math.random() * 3);
+    let randIdx = Math.floor(Math.random() * 4); //Math.floor(Math.random() * 3); -> written by shradha, but it will generate only 0,1,2 and 3 will never come
+    console.log({randIdx})
     let randColor = btns[randIdx];
     let randBtn = document.querySelector(`.${randColor}`);
     gameSeq.push(randColor);
@@ -63,7 +64,7 @@ function btnPress() {
     userFlash(btn);
     userColor = btn.getAttribute("id");
     userSeq.push(userColor);
-    console.log(userSeq);
+    // console.log(userSeq);
     checkAns(userSeq.length-1);
 }
 
@@ -78,3 +79,5 @@ function reset() {
     userSeq = [];
     level = 0;
 }
+
+//hw - track the highest score and print on screen
